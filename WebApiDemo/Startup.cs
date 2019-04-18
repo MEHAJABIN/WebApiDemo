@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
+using WebApiDemo.Controllers;
 
 namespace WebApiDemo
 {
@@ -26,6 +27,18 @@ namespace WebApiDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            IServiceCollection services1 = services;
+            NewMethod(services1);
+        }
+
+        private static void NewMethod(IServiceCollection services1)
+        {
+            NewMethod1(services1);
+        }
+
+        private static void NewMethod1(IServiceCollection services1)
+        {
+          //  services1.AddScoped<IPersonService, PersonService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
